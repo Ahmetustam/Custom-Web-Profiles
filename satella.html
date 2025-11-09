@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,44 +8,37 @@
       href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap"
       rel="stylesheet"
     />
-    <title>1kerem1_</title>
+    <title>Osmanlı Fatihi</title>
   </head>
   <body class="satella">
     <script src="utilities.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <!-- ARKA PLAN VİDEOSU: SAVAŞ SAHNESİ -->
+    <video loop muted autoplay class="background-video">
+      <source src="https://archive.org/download/mehter-savas/mehter-savas.mp4" type="video/mp4" />
+      Tarayıcınız video öğesini desteklemiyor.
+    </video>
 
     <div class="flex-body">
       <div class="socials">
         <div class="center">
           <img
             class="satella"
-            src="resources/images/icon_satella.gif"
-            alt="Icon"
+            src="https://i.imgur.com/5rZ4j8K.png"
+            alt="Fatih"
           />
-          <p class="username">サテラ</p>
+          <p class="username">OSMANLI FATİHİ</p>
         </div>
-
         <div class="link">
           <a href="https://steamcommunity.com/id/Fonsicreus/" target="_blank">
-            <img
-              class="link-image"
-              src="resources/images/icon_steam.png"
-              alt="Icon"
-            />
+            <img class="link-image" src="resources/images/icon_steam.png" alt="Steam" />
           </a>
           <a href="https://x.com/Fonsicreus" target="_blank">
-            <img
-              class="link-image"
-              src="resources/images/icon_x.jpg"
-              alt="Icon"
-            />
+            <img class="link-image" src="resources/images/icon_x.jpg" alt="X" />
           </a>
           <a href="https://discord.gg/Aje9WwjpRu" target="_blank">
-            <img
-              class="link-image"
-              src="resources/images/icon_discord.png"
-              alt="Icon"
-            />
+            <img class="link-image" src="resources/images/icon_discord.png" alt="Discord" />
           </a>
         </div>
       </div>
@@ -54,12 +47,12 @@
     <div class="flex-body-bio" style="display: none">
       <div class="bio">
         <ul class="bio-list">
-          <li>This is my first website!</li>
-          <li>I am studying HTML, CSS, and JS.</li>
-          <li>3 years of experience in Blender as an animator.</li>
-          <li>I have studies in computer assembly, maintenance, and networking.</li>
-          <li>My favorite anime are Frieren, Re:Zero, Ookami Kodomo no Ame to Yuki, and Houseki no Kuni.</li>
-          <li><a href="https://myanimelist.net/profile/Fonsicreus" target="_blank" class="dark-link">Here is a link to my MyAnimeList profile if anyone is interested</a></li>
+          <li>Bu benim ilk Osmanlı temalı web sitem!</li>
+          <li>HTML, CSS ve JS öğreniyorum. Yakında fetih kodları yazacağım.</li>
+          <li>3 yıllık Blender deneyimiyle mehter animasyonları yapıyorum.</li>
+          <li>Bilgisayar montajı, bakımı ve ağ konusunda ustayım.</li>
+          <li>Favori animelerim: Frieren, Re:Zero, ama asıl aşkım <strong>Osmanlı Tarihi</strong>.</li>
+          <li><a href="https://myanimelist.net/profile/Fonsicreus" target="_blank" class="dark-link">MyAnimeList profilime buradan ulaş</a></li>
         </ul>
       </div>
     </div>
@@ -68,12 +61,13 @@
       href="https://www.youtube.com/watch?v=5XJAiHD8rXQ"
       class="credits"
       target="_blank"
-      >CREDITS</a
+      >KREDİLER</a
     >
 
-    <audio class="musicplayer" id="background-audio" loop>
-      <source src="resources/audio/background_satella.mp3" type="audio/mp3" />
-      Your browser does not support the audio element.
+    <!-- MEHTER MARŞI -->
+    <audio class="musicplayer" id="background-audio" loop autoplay>
+      <source src="https://archive.org/download/mehter-marsi-ceddin-deden/mehter-ceddin-deden.mp3" type="audio/mp3" />
+      Tarayıcınız ses öğesini desteklemiyor.
     </audio>
 
     <div class="musicplayer">
@@ -82,35 +76,31 @@
         id="custom-volume-slider-satella"
         min="0"
         max="100"
-        value="100"
+        value="70"
       />
     </div>
 
     <img
       class="pull-down-menu"
-      src="resources/images/icon_arrow.png"
-      alt="Arrow"
+      src="https://i.imgur.com/3c0zRjP.png"
+      alt="Tuğra"
       onclick="clickOnImage()"
     />
 
-    <!-- Hidden text for the .js to use this text to display -->
+    <!-- YAZI: OSMANLI RUHU -->
     <p class="añadir-texto" style="display: none">
-      I'll do anything to make you stay with me...
+      Ceddin deden, neslin baban...
     </p>
     <p class="añadir-texto" style="display: none">
-      You belong to me, no one else...
+      Hep kahraman Türk milleti!
     </p>
     <p class="añadir-texto" style="display: none">
-      I can't live without you, don't you see that?
+      Orduların, pek çok zaman, vermişti dünyaya şan!
     </p>
     <p class="añadir-texto" style="display: none">
-      Don't you dare to leave me...
+      Türk milleti, Türk milleti...
     </p>
-    <p class="añadir-texto" style="display: none">DON'T YOU DARE TO LEAVE ME</p>
+    <p class="añadir-texto" style="display: none">AŞK İLE FEDA OLAN SENSİN!</p>
 
-    <video loop muted class="background-video">
-      <source src="resources/video/background_satella.mp4" type="video/mp4" />
-      Your browser does not support the video element.
-    </video>
   </body>
 </html>
