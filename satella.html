@@ -34,16 +34,17 @@
       .añadir-texto { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 32px; font-weight: bold; color: #ff4500; text-shadow: 0 0 20px #ffd700, 0 0 40px #ff0000; opacity: 0; pointer-events: none; z-index: 99; text-align: center; animation: glow 2s infinite alternate; }
       @keyframes glow { from { text-shadow: 0 0 20px #ffd700; } to { text-shadow: 0 0 40px #ff4500, 0 0 60px #ff0000; } }
       #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; }
-      .start-text { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 24px; color: #ffd700; text-align: center; z-index: 12; display: block; }
+
+      /* GİZLİ VİDEO - AUTOPLAY İÇİN TETİK */
+      .trigger-video { position: fixed; top: -100px; left: -100px; width: 1px; height: 1px; opacity: 0; }
     </style>
   </head>
   <body>
 
-    <!-- BAŞLANGIÇ MESAJI -->
-    <div class="start-text" id="start-text">
-      <p><strong>Tuğra'ya tıkla, mehter başlasın!</strong></p>
-      <p style="font-size:14px; margin-top:10px;">(Ses için izin ver)</p>
-    </div>
+    <!-- GİZLİ VİDEO: AUTOPLAY İÇİN SES İZNİ ALIYOR -->
+    <video class="trigger-video" autoplay muted loop playsinline>
+      <source src="data:video/mp4;base64,AAAAFGZ0eXBtcDQyAAAAAG1wNDFtcDQyAAAAAGlzb21pc29tAAAAJGF2YzEAAAAAGGF2YzFDgICAhAAAABdhdmN" type="video/mp4">
+    </video>
 
     <!-- ARKA PLAN VİDEOSU -->
     <video loop muted autoplay playsinline class="background-video">
@@ -91,18 +92,18 @@
 
     <a href="https://www.youtube.com/watch?v=5XJAiHD8rXQ" class="credits" target="_blank">KREDİLER</a>
 
-    <!-- MEHTER MARŞI (BAŞLAMAZ, TIKLANINCA BAŞLAR) -->
+    <!-- MEHTER MARŞI - OTOMATİK ÇALIYOR -->
     <audio class="musicplayer" id="background-audio" loop>
       <source src="https://archive.org/download/mehter-marsi-ceddin-deden/mehter-ceddin-deden.mp3" type="audio/mp3">
     </audio>
 
     <!-- SES KONTROL -->
-    <div class="musicplayer" id="volume-control" style="display:none;">
+    <div class="musicplayer">
       <input type="range" id="custom-volume-slider-satella" min="0" max="100" value="70">
     </div>
 
-    <!-- TUĞRA (TIKLA, MÜZİK + BİO BAŞLASIN) -->
-    <img class="pull-down-menu" src="https://i.imgur.com/3c0zRjP.png" alt="Tuğra" onclick="startExperience()">
+    <!-- TUĞRA - BİO AÇMAK İÇİN -->
+    <img class="pull-down-menu" src="https://i.imgur.com/3c0zRjP.png" alt="Tuğra" onclick="toggleBio()">
 
     <!-- MARŞ SÖZLERİ -->
     <p class="añadir-texto" id="text1">Ceddin deden, neslin baban...</p>
@@ -116,39 +117,28 @@
     <script>
       const audio = document.getElementById('background-audio');
       const volumeSlider = document.getElementById('custom-volume-slider-satella');
-      const volumeControl = document.getElementById('volume-control');
-      const startText = document.getElementById('start-text');
-      let started = false;
 
-      // İLK TIKLAMA: MÜZİK + BİO + EFEKTLER
-      function startExperience() {
-        if (started) return;
-        started = true;
+      // SES KONTROL
+      volumeSlider.addEventListener('input', () => {
+        audio.volume = volumeSlider.value / 100;
+      });
 
-        // Ses aç
-        audio.play().catch(() => {});
-        volumeControl.style.display = 'block';
-        startText.style.display = 'none';
-
-        // Bio aç
-        document.getElementById('bio-section').style.display = 'block';
-
-        // Ses kontrolü
-        volumeSlider.addEventListener('input', () => {
-          audio.volume = volumeSlider.value / 100;
-        });
-
-        // Marş sözleri
-        const texts = ['text1','text2','text3','text4','text5'];
-        let i = 0;
-        setInterval(() => {
-          document.getElementById(texts[i]).style.opacity = 0;
-          i = (i + 1) % texts.length;
-          setTimeout(() => {
-            document.getElementById(texts[i]).style.opacity = 1;
-          }, 500);
-        }, 3000);
+      // BİO AÇ/KAPA
+      function toggleBio() {
+        const bio = document.getElementById('bio-section');
+        bio.style.display = bio.style.display === 'block' ? 'none' : 'block';
       }
+
+      // MARŞ SÖZLERİ GEÇİŞ
+      const texts = ['text1','text2','text3','text4','text5'];
+      let i = 0;
+      setInterval(() => {
+        document.getElementById(texts[i]).style.opacity = 0;
+        i = (i + 1) % texts.length;
+        setTimeout(() => {
+          document.getElementById(texts[i]).style.opacity = 1;
+        }, 500);
+      }, 3000);
 
       // PARTICLES
       particlesJS("particles-js", {
@@ -165,6 +155,16 @@
           "detect_on": "canvas",
           "events": { "onhover": { "enable": true, "mode": "repulse" } }
         }
+      });
+
+      // OTO BAŞLAT: GİZLİ VİDEO İLE İZİN AL, SONRA MEHTERİ ÇAL
+      document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+          audio.play().catch(() => {
+            // Eğer hâlâ çalışmazsa, kullanıcı etkileşimi bekle
+            document.body.addEventListener('click', () => audio.play(), { once: true });
+          });
+        }, 500);
       });
     </script>
   </body>
