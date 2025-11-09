@@ -3,120 +3,221 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Osmanlı Fatihi</title>
+    <title>xx21_golge_27xx - Discord Profil Tanıtım</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <!-- OSMANLI TEMALI FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=MedievalSharp&display=swap" rel="stylesheet">
     
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { background: #0b0c0f; color: #f0e6d2; font-family: 'Cinzel', serif; overflow: hidden; height: 100vh; }
-      .background-video { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; opacity: 0.6; }
-      .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: -1; }
-      .flex-body { display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
-      .socials { text-align: center; background: rgba(139, 0, 0, 0.3); padding: 30px; border-radius: 20px; border: 3px solid #b8860b; box-shadow: 0 0 30px rgba(184, 134, 11, 0.6); backdrop-filter: blur(5px); }
-      .satella { width: 120px; height: 120px; border-radius: 50%; border: 4px solid #b8860b; box-shadow: 0 0 20px #b8860b; }
-      .username { font-size: 28px; margin: 15px 0; color: #ffd700; text-shadow: 0 0 10px #b8860b; letter-spacing: 2px; }
-      .link { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
-      .link-image { width: 50px; height: 50px; transition: 0.3s; filter: drop-shadow(0 0 8px #ffd700); }
-      .link-image:hover { transform: scale(1.2) rotate(360deg); filter: drop-shadow(0 0 15px #ff4500); }
-      .flex-body-bio { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.9); padding: 30px; border-radius: 15px; border: 2px solid #b8860b; max-width: 600px; z-index: 100; display: none; }
-      .bio-list { list-style: none; font-size: 16px; line-height: 1.8; }
-      .bio-list li { margin: 10px 0; position: relative; padding-left: 25px; }
-      .bio-list li::before { content: "Sword"; position: absolute; left: 0; }
-      .dark-link { color: #ffd700; text-decoration: underline; }
-      .credits { position: fixed; bottom: 20px; right: 20px; color: #b8860b; font-size: 14px; text-decoration: none; z-index: 10; }
-      .credits:hover { color: #ffd700; text-shadow: 0 0 10px #ff4500; }
-      .musicplayer { position: fixed; bottom: 20px; left: 20px; z-index: 10; }
-      #custom-volume-slider-satella { width: 150px; -webkit-appearance: none; height: 8px; background: #4b0000; outline: none; border-radius: 5px; }
-      #custom-volume-slider-satella::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; background: #b8860b; border-radius: 50%; cursor: pointer; box-shadow: 0 0 10px #ffd700; }
-      .pull-down-menu { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); width: 60px; cursor: pointer; filter: drop-shadow(0 0 10px #ffd700); transition: 0.3s; z-index: 11; }
-      .pull-down-menu:hover { transform: translateX(-50%) scale(1.2); }
-      .añadir-texto { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 32px; font-weight: bold; color: #ff4500; text-shadow: 0 0 20px #ffd700, 0 0 40px #ff0000; opacity: 0; pointer-events: none; z-index: 99; text-align: center; animation: glow 2s infinite alternate; }
-      @keyframes glow { from { text-shadow: 0 0 20px #ffd700; } to { text-shadow: 0 0 40px #ff4500, 0 0 60px #ff0000; } }
+      body { 
+        background: linear-gradient(135deg, #1a1a1a, #2d1b0b); 
+        color: #f0e6d2; 
+        font-family: 'Cinzel', serif; 
+        overflow: hidden; 
+        height: 100vh; 
+        position: relative;
+      }
+
+      /* ARKA PLAN: OSMANLI SAVAŞI + KAN EFEKTİ */
+      .background-video { 
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; opacity: 0.7; 
+      }
+      .overlay { 
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(139, 0, 0, 0.4); z-index: -1; 
+      }
+
+      /* ANA KAPSAYICI */
+      .container { 
+        display: flex; flex-direction: column; justify-content: center; align-items: center; 
+        min-height: 100vh; padding: 20px; text-align: center; 
+      }
+
+      /* PROFİL FOTOĞRAFI + TUĞRA */
+      .profile-img { 
+        width: 140px; height: 140px; border-radius: 50%; border: 5px solid #b8860b; 
+        box-shadow: 0 0 25px #ffd700, 0 0 40px #ff4500; margin-bottom: 15px; 
+      }
+
+      .username { 
+        font-size: 32px; color: #ffd700; text-shadow: 0 0 15px #b8860b; letter-spacing: 3px; margin: 10px 0; 
+      }
+
+      .tagline { 
+        font-size: 18px; color: #ffcc80; margin-bottom: 25px; font-style: italic; 
+      }
+
+      /* SOSYAL MEDYA İKONLARI */
+      .social-links { 
+        display: flex; gap: 25px; margin: 20px 0; 
+      }
+      .social-links a img { 
+        width: 55px; height: 55px; transition: 0.4s; filter: drop-shadow(0 0 10px #ffd700); 
+      }
+      .social-links a img:hover { 
+        transform: scale(1.3) rotate(360deg); filter: drop-shadow(0 0 20px #ff4500); 
+      }
+
+      /* DISCORD WIDGET */
+      .discord-widget { 
+        background: rgba(0, 0, 0, 0.6); padding: 15px; border-radius: 12px; 
+        border: 2px solid #b8860b; box-shadow: 0 0 20px rgba(184, 134, 11, 0.5); 
+        margin: 25px 0; 
+      }
+
+      /* MEHTER MARŞI SÖZLERİ (YAZI EFEKTİ) */
+      .lyric { 
+        position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+        font-size: 36px; font-weight: bold; color: #ff4500; 
+        text-shadow: 0 0 25px #ffd700, 0 0 50px #ff0000; opacity: 0; 
+        pointer-events: none; z-index: 99; text-align: center; 
+        animation: glow 2.5s infinite alternate; 
+      }
+      @keyframes glow { 
+        from { text-shadow: 0 0 25px #ffd700; } 
+        to { text-shadow: 0 0 50px #ff4500, 0 0 70px #ff0000; } 
+      }
+
+      /* SES KONTROL */
+      .volume-control { 
+        position: fixed; bottom: 25px; left: 25px; z-index: 10; 
+      }
+      #volume-slider { 
+        width: 160px; -webkit-appearance: none; height: 10px; background: #4b0000; 
+        outline: none; border-radius: 6px; 
+      }
+      #volume-slider::-webkit-slider-thumb { 
+        -webkit-appearance: none; width: 22px; height: 22px; background: #b8860b; 
+        border-radius: 50%; cursor: pointer; box-shadow: 0 0 12px #ffd700; 
+      }
+
+      /* TUĞRA OKU (BİO AÇMAK İÇİN) */
+      .tughra-arrow { 
+        position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); 
+        width: 70px; cursor: pointer; filter: drop-shadow(0 0 12px #ffd700); 
+        transition: 0.3s; z-index: 11; 
+      }
+      .tughra-arrow:hover { transform: translateX(-50%) scale(1.3); }
+
+      /* BİO PANEL */
+      .bio-panel { 
+        position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+        background: rgba(0, 0, 0, 0.92); padding: 35px; border-radius: 18px; 
+        border: 3px solid #b8860b; max-width: 650px; z-index: 100; display: none; 
+        box-shadow: 0 0 40px rgba(255, 69, 0, 0.6); 
+      }
+      .bio-list { 
+        list-style: none; font-size: 17px; line-height: 2; text-align: left; 
+      }
+      .bio-list li { 
+        margin: 12px 0; position: relative; padding-left: 30px; 
+      }
+      .bio-list li::before { 
+        content: "Sword"; position: absolute; left: 0; color: #ffd700; 
+      }
+      .bio-link { color: #ffd700; text-decoration: underline; }
+
+      /* KREDİLER */
+      .credits { 
+        position: fixed; bottom: 25px; right: 25px; color: #b8860b; font-size: 15px; 
+        text-decoration: none; z-index: 10; 
+      }
+      .credits:hover { color: #ffd700; text-shadow: 0 0 12px #ff4500; }
+
+      /* PARTICLES: ATEŞ VE KAN */
       #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; }
 
-      /* GİZLİ VİDEO - AUTOPLAY İÇİN TETİK */
+      /* GİZLİ AUTOPLAY TETİKLEYİCİ */
       .trigger-video { position: fixed; top: -100px; left: -100px; width: 1px; height: 1px; opacity: 0; }
     </style>
   </head>
   <body>
 
-    <!-- GİZLİ VİDEO: AUTOPLAY İÇİN SES İZNİ ALIYOR -->
+    <!-- GİZLİ VİDEO: SES İZNİ İÇİN -->
     <video class="trigger-video" autoplay muted loop playsinline>
       <source src="data:video/mp4;base64,AAAAFGZ0eXBtcDQyAAAAAG1wNDFtcDQyAAAAAGlzb21pc29tAAAAJGF2YzEAAAAAGGF2YzFDgICAhAAAABdhdmN" type="video/mp4">
     </video>
 
-    <!-- ARKA PLAN VİDEOSU -->
+    <!-- ARKA PLAN: OSMANLI SAVAŞI -->
     <video loop muted autoplay playsinline class="background-video">
       <source src="https://archive.org/download/osmanli-savas-reenactment/osmanli-savas.mp4" type="video/mp4">
     </video>
     <div class="overlay"></div>
 
-    <!-- PARTICLES -->
+    <!-- ATEŞ & KAN PARTICLES -->
     <div id="particles-js"></div>
 
     <!-- ANA İÇERİK -->
-    <div class="flex-body">
-      <div class="socials">
-        <div class="center">
-          <img class="satella" src="https://i.imgur.com/5rZ4j8K.png" alt="Fatih">
-          <p class="username">OSMANLI FATİHİ</p>
-        </div>
-        <div class="link">
-          <a href="https://steamcommunity.com/id/Fonsicreus/" target="_blank">
-            <img class="link-image" src="https://cdn-icons-png.flaticon.com/512/5968/5968956.png" alt="Steam">
-          </a>
-          <a href="https://x.com/Fonsicreus" target="_blank">
-            <img class="link-image" src="https://cdn-icons-png.flaticon.com/512/5969/5969020.png" alt="X">
-          </a>
-          <a href="https://discord.gg/Aje9WwjpRu" target="_blank">
-            <img class="link-image" src="https://cdn-icons-png.flaticon.com/512/5968/5968893.png" alt="Discord">
-          </a>
-        </div>
+    <div class="container">
+      <img class="profile-img" src="https://i.imgur.com/5rZ4j8K.png" alt="xx21_golge_27xx">
+      <h1 class="username">xx21_golge_27xx</h1>
+      <p class="tagline">Gölge gibi gizli, kılıç gibi keskin.</p>
+
+      <!-- SOSYAL MEDYA -->
+      <div class="social-links">
+        <a href="https://steamcommunity.com/id/Fonsicreus/" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968956.png" alt="Steam">
+        </a>
+        <a href="https://x.com/Fonsicreus" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/5969/5969020.png" alt="X">
+        </a>
+        <a href="https://discord.gg/Aje9WwjpRu" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968893.png" alt="Discord">
+        </a>
+      </div>
+
+      <!-- DISCORD WIDGET -->
+      <div class="discord-widget">
+        <iframe
+          title="Discord user embed"
+          width="340"
+          height="120"
+          frameborder="0"
+          sandbox="allow-scripts"
+          src="https://widgets.vendicated.dev/user?id=1173968740677853316&theme=dark&banner=true&full-banner=false&rounded-corners=true&discord-icon=false&badges=true&guess-nitro=true&"
+        ></iframe>
       </div>
     </div>
 
-    <!-- BİO -->
-    <div class="flex-body-bio" id="bio-section">
-      <div class="bio">
-        <ul class="bio-list">
-          <li>Bu benim ilk Osmanlı temalı web sitem!</li>
-          <li>HTML, CSS ve JS öğreniyorum. Yakında fetih kodları yazacağım.</li>
-          <li>3 yıllık Blender deneyimiyle mehter animasyonları yapıyorum.</li>
-          <li>Bilgisayar montajı, bakımı ve ağ konusunda ustayım.</li>
-          <li>Favori animelerim: Frieren, Re:Zero, ama asıl aşkım <strong>Osmanlı Tarihi</strong>.</li>
-          <li><a href="https://myanimelist.net/profile/Fonsicreus" target="_blank" class="dark-link">MyAnimeList profilime buradan ulaş</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <a href="https://www.youtube.com/watch?v=5XJAiHD8rXQ" class="credits" target="_blank">KREDİLER</a>
-
-    <!-- MEHTER MARŞI - OTOMATİK ÇALIYOR -->
-    <audio class="musicplayer" id="background-audio" loop>
+    <!-- MEHTER MARŞI (OTO ÇALIYOR) -->
+    <audio id="background-audio" loop>
       <source src="https://archive.org/download/mehter-marsi-ceddin-deden/mehter-ceddin-deden.mp3" type="audio/mp3">
     </audio>
 
     <!-- SES KONTROL -->
-    <div class="musicplayer">
-      <input type="range" id="custom-volume-slider-satella" min="0" max="100" value="70">
+    <div class="volume-control">
+      <input type="range" id="volume-slider" min="0" max="100" value="70">
     </div>
 
-    <!-- TUĞRA - BİO AÇMAK İÇİN -->
-    <img class="pull-down-menu" src="https://i.imgur.com/3c0zRjP.png" alt="Tuğra" onclick="toggleBio()">
+    <!-- TUĞRA OKU (BİO AÇ) -->
+    <img class="tughra-arrow" src="https://i.imgur.com/3c0zRjP.png" alt="Tuğra" onclick="toggleBio()">
+
+    <!-- BİO PANEL -->
+    <div class="bio-panel" id="bio-panel">
+      <ul class="bio-list">
+        <li>Discord'ta aktifim, sunucuma beklerim!</li>
+        <li>HTML, CSS, JS öğreniyorum. Bu site tamamen benim eserim.</li>
+        <li>Blender'da 3D animasyon yapıyorum.</li>
+        <li>Bilgisayar montajı ve ağ uzmanıyım.</li>
+        <li>Favori animeler: Frieren, Re:Zero, Houseki no Kuni.</li>
+        <li><a href="https://myanimelist.net/profile/Fonsicreus" target="_blank" class="bio-link">MyAnimeList profilim</a></li>
+      </ul>
+    </div>
 
     <!-- MARŞ SÖZLERİ -->
-    <p class="añadir-texto" id="text1">Ceddin deden, neslin baban...</p>
-    <p class="añadir-texto" id="text2">Hep kahraman Türk milleti!</p>
-    <p class="añadir-texto" id="text3">Orduların, pek çok zaman, vermişti dünyaya şan!</p>
-    <p class="añadir-texto" id="text4">Türk milleti, Türk milleti...</p>
-    <p class="añadir-texto" id="text5">AŞK İLE FEDA OLAN SENSİN!</p>
+    <p class="lyric" id="lyric1">Ceddin deden, neslin baban...</p>
+    <p class="lyric" id="lyric2">Hep kahraman Türk milleti!</p>
+    <p class="lyric" id="lyric3">Orduların, pek çok zaman, vermişti dünyaya şan!</p>
+    <p class="lyric" id="lyric4">Türk milleti, Türk milleti...</p>
+    <p class="lyric" id="lyric5">AŞK İLE FEDA OLAN SENSİN!</p>
+
+    <a href="https://www.youtube.com/watch?v=5XJAiHD8rXQ" class="credits" target="_blank">KREDİLER</a>
 
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
       const audio = document.getElementById('background-audio');
-      const volumeSlider = document.getElementById('custom-volume-slider-satella');
+      const volumeSlider = document.getElementById('volume-slider');
 
       // SES KONTROL
       volumeSlider.addEventListener('input', () => {
@@ -125,31 +226,31 @@
 
       // BİO AÇ/KAPA
       function toggleBio() {
-        const bio = document.getElementById('bio-section');
-        bio.style.display = bio.style.display === 'block' ? 'none' : 'block';
+        const panel = document.getElementById('bio-panel');
+        panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
       }
 
       // MARŞ SÖZLERİ GEÇİŞ
-      const texts = ['text1','text2','text3','text4','text5'];
-      let i = 0;
+      const lyrics = ['lyric1','lyric2','lyric3','lyric4','lyric5'];
+      let idx = 0;
       setInterval(() => {
-        document.getElementById(texts[i]).style.opacity = 0;
-        i = (i + 1) % texts.length;
+        document.getElementById(lyrics[idx]).style.opacity = 0;
+        idx = (idx + 1) % lyrics.length;
         setTimeout(() => {
-          document.getElementById(texts[i]).style.opacity = 1;
-        }, 500);
-      }, 3000);
+          document.getElementById(lyrics[idx]).style.opacity = 1;
+        }, 600);
+      }, 3200);
 
-      // PARTICLES
+      // PARTICLES: ATEŞ VE KAN
       particlesJS("particles-js", {
         "particles": {
-          "number": { "value": 80 },
+          "number": { "value": 90 },
           "color": { "value": ["#ff4500", "#ffd700", "#8B0000"] },
           "shape": { "type": "circle" },
-          "opacity": { "value": 0.7, "random": true },
-          "size": { "value": 4, "random": true },
+          "opacity": { "value": 0.75, "random": true },
+          "size": { "value": 5, "random": true },
           "line_linked": { "enable": false },
-          "move": { "enable": true, "speed": 3, "direction": "none", "random": true }
+          "move": { "enable": true, "speed": 4, "direction": "none", "random": true }
         },
         "interactivity": {
           "detect_on": "canvas",
@@ -157,14 +258,13 @@
         }
       });
 
-      // OTO BAŞLAT: GİZLİ VİDEO İLE İZİN AL, SONRA MEHTERİ ÇAL
+      // OTO MEHTER: GİZLİ VİDEO İLE İZİN ALIP ÇAL
       document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           audio.play().catch(() => {
-            // Eğer hâlâ çalışmazsa, kullanıcı etkileşimi bekle
             document.body.addEventListener('click', () => audio.play(), { once: true });
           });
-        }, 500);
+        }, 600);
       });
     </script>
   </body>
