@@ -5,222 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Osmanlı Fatihi</title>
     
-    <!-- OSMANLI FONTU -->
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel:wght@700&display=swap" rel="stylesheet">
     
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      
-      body {
-        background: #0b0c0f;
-        color: #f0e6d2;
-        font-family: 'Cinzel', serif;
-        overflow: hidden;
-        height: 100vh;
-      }
-
-      /* ARKA PLAN SAVAŞ VİDEOSU */
-      .background-video {
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        object-fit: cover;
-        z-index: -2;
-        opacity: 0.6;
-      }
-
-      /* KOYU FİLTRE */
-      .overlay {
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: rgba(0, 0, 0, 0.7);
-        z-index: -1;
-      }
-
-      /* ANA KAPSAYICI */
-      .flex-body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        padding: 20px;
-      }
-
-      .socials {
-        text-align: center;
-        background: rgba(139, 0, 0, 0.3);
-        padding: 30px;
-        border-radius: 20px;
-        border: 3px solid #b8860b;
-        box-shadow: 0 0 30px rgba(184, 134, 11, 0.6);
-        backdrop-filter: blur(5px);
-      }
-
-      .satella {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        border: 4px solid #b8860b;
-        box-shadow: 0 0 20px #b8860b;
-      }
-
-      .username {
-        font-size: 28px;
-        margin: 15px 0;
-        color: #ffd700;
-        text-shadow: 0 0 10px #b8860b;
-        letter-spacing: 2px;
-      }
-
-      .link {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        margin-top: 15px;
-      }
-
-      .link-image {
-        width: 50px;
-        height: 50px;
-        transition: 0.3s;
-        filter: drop-shadow(0 0 8px #ffd700);
-      }
-
-      .link-image:hover {
-        transform: scale(1.2) rotate(360deg);
-        filter: drop-shadow(0 0 15px #ff4500);
-      }
-
-      /* BİO KISMI */
-      .flex-body-bio {
-        position: fixed;
-        top: 50%; left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(0, 0, 0, 0.9);
-        padding: 30px;
-        border-radius: 15px;
-        border: 2px solid #b8860b;
-        max-width: 600px;
-        z-index: 100;
-        display: none;
-      }
-
-      .bio-list {
-        list-style: none;
-        font-size: 16px;
-        line-height: 1.8;
-      }
-
-      .bio-list li {
-        margin: 10px 0;
-        position: relative;
-        padding-left: 25px;
-      }
-
-      .bio-list li::before {
-        content: "⚔️";
-        position: absolute;
-        left: 0;
-      }
-
-      .dark-link {
-        color: #ffd700;
-        text-decoration: underline;
-      }
-
-      /* KREDİLER */
-      .credits {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        color: #b8860b;
-        font-size: 14px;
-        text-decoration: none;
-        z-index: 10;
-      }
-
-      .credits:hover {
-        color: #ffd700;
-        text-shadow: 0 0 10px #ff4500;
-      }
-
-      /* SES KONTROL */
-      .musicplayer {
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        z-index: 10;
-      }
-
-      #custom-volume-slider-satella {
-        width: 150px;
-        -webkit-appearance: none;
-        height: 8px;
-        background: #4b0000;
-        outline: none;
-        border-radius: 5px;
-      }
-
-      #custom-volume-slider-satella::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        width: 20px;
-        height: 20px;
-        background: #b8860b;
-        border-radius: 50%;
-        cursor: pointer;
-        box-shadow: 0 0 10px #ffd700;
-      }
-
-      /* AÇILIR MENÜ OKU */
-      .pull-down-menu {
-        position: fixed;
-        bottom: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60px;
-        cursor: pointer;
-        filter: drop-shadow(0 0 10px #ffd700);
-        transition: 0.3s;
-        z-index: 11;
-      }
-
-      .pull-down-menu:hover {
-        transform: translateX(-50%) scale(1.2);
-      }
-
-      /* YAZI EFEKTLERİ */
-      .añadir-texto {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 32px;
-        font-weight: bold;
-        color: #ff4500;
-        text-shadow: 0 0 20px #ffd700, 0 0 40px #ff0000;
-        opacity: 0;
-        pointer-events: none;
-        z-index: 99;
-        text-align: center;
-        animation: glow 2s infinite alternate;
-      }
-
-      @keyframes glow {
-        from { text-shadow: 0 0 20px #ffd700; }
-        to { text-shadow: 0 0 40px #ff4500, 0 0 60px #ff0000; }
-      }
-
-      /* PARTICLES.JS İÇİN */
-      #particles-js {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-      }
+      body { background: #0b0c0f; color: #f0e6d2; font-family: 'Cinzel', serif; overflow: hidden; height: 100vh; }
+      .background-video { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; opacity: 0.6; }
+      .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: -1; }
+      .flex-body { display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+      .socials { text-align: center; background: rgba(139, 0, 0, 0.3); padding: 30px; border-radius: 20px; border: 3px solid #b8860b; box-shadow: 0 0 30px rgba(184, 134, 11, 0.6); backdrop-filter: blur(5px); }
+      .satella { width: 120px; height: 120px; border-radius: 50%; border: 4px solid #b8860b; box-shadow: 0 0 20px #b8860b; }
+      .username { font-size: 28px; margin: 15px 0; color: #ffd700; text-shadow: 0 0 10px #b8860b; letter-spacing: 2px; }
+      .link { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
+      .link-image { width: 50px; height: 50px; transition: 0.3s; filter: drop-shadow(0 0 8px #ffd700); }
+      .link-image:hover { transform: scale(1.2) rotate(360deg); filter: drop-shadow(0 0 15px #ff4500); }
+      .flex-body-bio { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.9); padding: 30px; border-radius: 15px; border: 2px solid #b8860b; max-width: 600px; z-index: 100; display: none; }
+      .bio-list { list-style: none; font-size: 16px; line-height: 1.8; }
+      .bio-list li { margin: 10px 0; position: relative; padding-left: 25px; }
+      .bio-list li::before { content: "Sword"; position: absolute; left: 0; }
+      .dark-link { color: #ffd700; text-decoration: underline; }
+      .credits { position: fixed; bottom: 20px; right: 20px; color: #b8860b; font-size: 14px; text-decoration: none; z-index: 10; }
+      .credits:hover { color: #ffd700; text-shadow: 0 0 10px #ff4500; }
+      .musicplayer { position: fixed; bottom: 20px; left: 20px; z-index: 10; }
+      #custom-volume-slider-satella { width: 150px; -webkit-appearance: none; height: 8px; background: #4b0000; outline: none; border-radius: 5px; }
+      #custom-volume-slider-satella::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; background: #b8860b; border-radius: 50%; cursor: pointer; box-shadow: 0 0 10px #ffd700; }
+      .pull-down-menu { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); width: 60px; cursor: pointer; filter: drop-shadow(0 0 10px #ffd700); transition: 0.3s; z-index: 11; }
+      .pull-down-menu:hover { transform: translateX(-50%) scale(1.2); }
+      .añadir-texto { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 32px; font-weight: bold; color: #ff4500; text-shadow: 0 0 20px #ffd700, 0 0 40px #ff0000; opacity: 0; pointer-events: none; z-index: 99; text-align: center; animation: glow 2s infinite alternate; }
+      @keyframes glow { from { text-shadow: 0 0 20px #ffd700; } to { text-shadow: 0 0 40px #ff4500, 0 0 60px #ff0000; } }
+      #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; }
+      .start-text { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 24px; color: #ffd700; text-align: center; z-index: 12; display: block; }
     </style>
   </head>
   <body>
+
+    <!-- BAŞLANGIÇ MESAJI -->
+    <div class="start-text" id="start-text">
+      <p><strong>Tuğra'ya tıkla, mehter başlasın!</strong></p>
+      <p style="font-size:14px; margin-top:10px;">(Ses için izin ver)</p>
+    </div>
 
     <!-- ARKA PLAN VİDEOSU -->
     <video loop muted autoplay playsinline class="background-video">
@@ -228,7 +51,7 @@
     </video>
     <div class="overlay"></div>
 
-    <!-- PARTICLES (KAN & ATEŞ) -->
+    <!-- PARTICLES -->
     <div id="particles-js"></div>
 
     <!-- ANA İÇERİK -->
@@ -252,7 +75,7 @@
       </div>
     </div>
 
-    <!-- BİO (GİZLİ) -->
+    <!-- BİO -->
     <div class="flex-body-bio" id="bio-section">
       <div class="bio">
         <ul class="bio-list">
@@ -268,18 +91,18 @@
 
     <a href="https://www.youtube.com/watch?v=5XJAiHD8rXQ" class="credits" target="_blank">KREDİLER</a>
 
-    <!-- MEHTER MARŞI -->
-    <audio class="musicplayer" id="background-audio" loop autoplay>
+    <!-- MEHTER MARŞI (BAŞLAMAZ, TIKLANINCA BAŞLAR) -->
+    <audio class="musicplayer" id="background-audio" loop>
       <source src="https://archive.org/download/mehter-marsi-ceddin-deden/mehter-ceddin-deden.mp3" type="audio/mp3">
     </audio>
 
     <!-- SES KONTROL -->
-    <div class="musicplayer">
+    <div class="musicplayer" id="volume-control" style="display:none;">
       <input type="range" id="custom-volume-slider-satella" min="0" max="100" value="70">
     </div>
 
-    <!-- AÇILIR OK -->
-    <img class="pull-down-menu" src="https://i.imgur.com/3c0zRjP.png" alt="Tuğra" onclick="toggleBio()">
+    <!-- TUĞRA (TIKLA, MÜZİK + BİO BAŞLASIN) -->
+    <img class="pull-down-menu" src="https://i.imgur.com/3c0zRjP.png" alt="Tuğra" onclick="startExperience()">
 
     <!-- MARŞ SÖZLERİ -->
     <p class="añadir-texto" id="text1">Ceddin deden, neslin baban...</p>
@@ -291,7 +114,43 @@
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-      // PARTICLES.JS - KAN & ATEŞ
+      const audio = document.getElementById('background-audio');
+      const volumeSlider = document.getElementById('custom-volume-slider-satella');
+      const volumeControl = document.getElementById('volume-control');
+      const startText = document.getElementById('start-text');
+      let started = false;
+
+      // İLK TIKLAMA: MÜZİK + BİO + EFEKTLER
+      function startExperience() {
+        if (started) return;
+        started = true;
+
+        // Ses aç
+        audio.play().catch(() => {});
+        volumeControl.style.display = 'block';
+        startText.style.display = 'none';
+
+        // Bio aç
+        document.getElementById('bio-section').style.display = 'block';
+
+        // Ses kontrolü
+        volumeSlider.addEventListener('input', () => {
+          audio.volume = volumeSlider.value / 100;
+        });
+
+        // Marş sözleri
+        const texts = ['text1','text2','text3','text4','text5'];
+        let i = 0;
+        setInterval(() => {
+          document.getElementById(texts[i]).style.opacity = 0;
+          i = (i + 1) % texts.length;
+          setTimeout(() => {
+            document.getElementById(texts[i]).style.opacity = 1;
+          }, 500);
+        }, 3000);
+      }
+
+      // PARTICLES
       particlesJS("particles-js", {
         "particles": {
           "number": { "value": 80 },
@@ -307,30 +166,6 @@
           "events": { "onhover": { "enable": true, "mode": "repulse" } }
         }
       });
-
-      // SES KONTROL
-      const audio = document.getElementById('background-audio');
-      const volumeSlider = document.getElementById('custom-volume-slider-satella');
-      volumeSlider.addEventListener('input', () => {
-        audio.volume = volumeSlider.value / 100;
-      });
-
-      // BİO AÇ/KAPA
-      function toggleBio() {
-        const bio = document.getElementById('bio-section');
-        bio.style.display = bio.style.display === 'block' ? 'none' : 'block';
-      }
-
-      // MARŞ SÖZLERİ GEÇİŞ
-      const texts = ['text1','text2','text3','text4','text5'];
-      let i = 0;
-      setInterval(() => {
-        document.getElementById(texts[i]).style.opacity = 0;
-        i = (i + 1) % texts.length;
-        setTimeout(() => {
-          document.getElementById(texts[i]).style.opacity = 1;
-        }, 500);
-      }, 3000);
     </script>
   </body>
 </html>
